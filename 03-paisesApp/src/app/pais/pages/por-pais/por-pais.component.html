@@ -27,7 +27,7 @@
   <div class="col">
     <table class="table table-hover">
       <thead>
-        <tr>
+        <tr >
           <th> # </th>
           <th>Bandera</th>
           <th>Nombre</th>
@@ -36,12 +36,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Bandera</td>
-          <td>Nombre</td>
-          <td>43214214</td>
-          <td><a href="pais/cri">Ver...</a></td>
+        <tr *ngFor="let pais of paises; let i = index">
+          <td>{{i}}</td>
+          <td><img src="{{pais.flags.png}}" alt="" class="small-flag"></td>
+          <td>{{pais.name.common}}</td>
+          <td>{{pais.population}}</td>
+          <td><a href="pais/{{pais.cca2}}">Ver...</a></td>
         </tr>
       </tbody>
     </table>
