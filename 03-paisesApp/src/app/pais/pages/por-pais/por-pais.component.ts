@@ -8,22 +8,25 @@ import { Country } from '../../interfaces/pais.interfaces';
   styleUrls: ['./por-pais.component.css']
 })
 export class PorPaisComponent{
-
-  termino: string = "Hola Mundo";
+  
   terminoError: string = "";
   hayError: Boolean = false;
   paises: Country[] = [];
 
   constructor( private paisService: PaisService ) { }
 
-  buscar(){
-    this.paisService.buscarPais(this.termino).subscribe(resp => {
+  buscar( termino: string){
+    this.paisService.buscarPais(termino).subscribe(resp => {
       this.paises = resp;  
       this.hayError = false;
     }, (err) =>{
-      this.terminoError = this.termino;
+      this.terminoError = termino;
       this.hayError = true;
     });
+  }
+
+  sugerencias(termino: string){
+    this.hayError=false
   }
 
 }
