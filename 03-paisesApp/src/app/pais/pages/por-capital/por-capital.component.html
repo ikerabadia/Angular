@@ -1,1 +1,28 @@
 <h1>BUSQUEDA POR CAPITAL</h1>
+<hr>
+<div class="row">
+  <div class="col">
+
+    <app-pais-input 
+        (onEnter)="buscar( $event )"
+        (onDebounce)="sugerencias( $event )" 
+        placeholder="Escriba una capital..."
+    ></app-pais-input>
+
+  </div>
+
+</div>
+
+<hr>
+
+<div *ngIf="hayError" class="alert alert-danger" >
+  No se encontro nada con el termino <b>{{terminoError}}</b>
+</div>
+
+<div *ngIf="!hayError" class="row">
+  <div class="col">
+
+    <app-pais-tabla [paises]="paises"></app-pais-tabla>
+
+  </div>
+</div>
