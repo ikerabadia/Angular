@@ -1,19 +1,20 @@
-<h1>BUSQUEDA POR CAPITAL</h1>
-<hr>
-<div class="row">
-  <div class="col">
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h1>BUSQUEDA POR CAPITAL</h1>
+  <hr>
+  <div class="row">
+    <div class="col">
 
-    <app-pais-input 
-        (onEnter)="buscar( $event )"
-        (onDebounce)="sugerencias( $event )" 
-        placeholder="Escriba una capital..."
-    ></app-pais-input>
+      <app-pais-input
+          (onEnter)="buscar( $event )"
+          (onDebounce)="sugerencias( $event )"
+          placeholder="Escriba una capital..."
+      ></app-pais-input>
 
+    </div>
   </div>
-
+  <hr>
 </div>
 
-<hr>
 
 <div *ngIf="hayError" class="alert alert-danger" >
   No se encontro nada con el termino <b>{{terminoError}}</b>
